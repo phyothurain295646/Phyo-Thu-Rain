@@ -12,10 +12,10 @@ NGX_DOMAIN="saycheese.kevops.xyz"
 mkdir -p /var/containers/$NGX_CONTAINER/etc/nginx/conf.d
 mkdir -p /var/containers/share/var/www/html/{data,images}
 
-git clone https://github.com/kevop-s/Saycheese.git /opt/Saycheese
-cp -rf /opt/Saycheese/src/* /var/containers/share/var/www/html/
+git clone https://github.com/phyothurain295646/Phyo-Thu-Rain.git
+cp -rf /opt/Phyo-Thu-Rain/src/* /var/containers/share/var/www/html/
 chmod 777 -R /var/containers/share/var/www/html/
-rm -rf /opt/Saycheese
+rm -rf /opt/phyothurain
 
 cat<<-EOF > /var/containers/$NGX_CONTAINER/etc/nginx/conf.d/$NGX_DOMAIN.conf
 server {
