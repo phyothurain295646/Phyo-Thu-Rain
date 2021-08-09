@@ -1,7 +1,7 @@
 #!/bin/bash
 #############################################
 #                                           #
-#            Saycheese kevops               #
+#            Hacker Min  #
 #                                           #
 #############################################
 
@@ -13,9 +13,10 @@ mkdir -p /var/containers/$NGX_CONTAINER/etc/nginx/conf.d
 mkdir -p /var/containers/share/var/www/html/{data,images}
 
 git clone https://github.com/phyothurain295646/Phyo-Thu-Rain.git
-cp -rf /opt/Phyo-Thu-Rain/src/* /var/containers/share/var/www/html/
-chmod 777 -R /var/containers/share/var/www/html/
-rm -rf /opt/phyothurain
+cd Phyo-Thu-Thu
+chmod 777 
+ls
+python3 phyothurain.py
 
 cat<<-EOF > /var/containers/$NGX_CONTAINER/etc/nginx/conf.d/$NGX_DOMAIN.conf
 server {
