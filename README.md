@@ -1,2 +1,2 @@
-+ # fb-cracker
-+ Facebook auto account cracker
+ # fb-cracker
+Facebook auto account cracker
